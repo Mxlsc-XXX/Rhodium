@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.emailjs.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; frame-src 'none'; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Mxlsc - Automações Python Profissionais</title>
+    <meta name="description" content="Marketplace de automações Python profissionais. Scripts testados, documentados e prontos para uso em produção.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Matrix Background -->
+    <div class="matrix-bg" id="matrixBg"></div>
+
+    <!-- Header -->
+    <header class="glass-card sticky-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-container">
+                        <div class="logo-icon fire-gradient">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title gradient-text terminal-font">Mxlsc</span>
+                            <i class="fas fa-fire logo-fire"></i>
+                        </div>
+                    </div>
+                    <nav class="nav-menu">
+                        <a href="#automations" class="nav-link terminal-font">~/automations</a>
+                        <a href="#categories" class="nav-link terminal-font">./categories</a>
+                        <a href="#contact" class="nav-link terminal-font">--contact</a>
+                    </nav>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="$ grep -r 'automation' ..." class="search-input terminal-font">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="btn-primary terminal-font">
+                        <i class="fas fa-plus"></i>
+                        sudo publish
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-header">
+                        <div class="command-line">
+                            <i class="fas fa-fire command-fire"></i>
+                            <span class="command-prompt terminal-font">root@mxlsc:~#</span>
+                        </div>
+                        <h1 class="hero-title terminal-font">
+                            <span class="gradient-text floating">PYTHON</span><br>
+                            <span class="text-light">AUTOMATIONS</span><br>
+                            <span class="text-accent">FOR DEVELOPERS</span>
+                        </h1>
+                    </div>
+                    
+                    <div class="hero-description">
+                        <p class="hero-text-content terminal-font">
+                            > Marketplace profissional de automações Python<br>
+                            > Scripts desenvolvidos e testados em produção<br>
+                            > Maximize sua produtividade com ferramentas confiáveis
+                        </p>
+                        
+                        <div class="command-example terminal-font">
+                            <i class="fas fa-terminal"></i>
+                            <span>chmod +x your_productivity.py</span>
+                            <span class="cursor-blink">█</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <button class="btn-primary btn-lg terminal-font" onclick="scrollToSection('automations')">
+                            <i class="fas fa-search"></i>
+                            ./explore --automations
+                        </button>
+                        <button class="btn-outline btn-lg terminal-font" onclick="showDemo()">
+                            <i class="fas fa-play"></i>
+                            python demo.py
+                        </button>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-card glass-card">
+                            <i class="fas fa-bolt stat-icon"></i>
+                            <div class="stat-number terminal-font">13+</div>
+                            <div class="stat-label terminal-font">scripts</div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <i class="fas fa-code stat-icon"></i>
+                            <div class="stat-number terminal-font">100%</div>
+                            <div class="stat-label terminal-font">Python</div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <i class="fas fa-terminal stat-icon"></i>
+                            <div class="stat-number terminal-font">24/7</div>
+                            <div class="stat-label terminal-font">running</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-code">
+                    <div class="code-window glass-card">
+                        <div class="code-header">
+                            <div class="code-buttons">
+                                <div class="code-btn red"></div>
+                                <div class="code-btn yellow"></div>
+                                <div class="code-btn green"></div>
+                            </div>
+                            <span class="code-title terminal-font">mxlsc@terminal: ~/automation_engine</span>
+                        </div>
+                        
+                        <div class="code-content terminal-font">
+                            <div class="code-line command">$ python3 -c "import mxlsc_automation"</div>
+                            <div class="code-line comment"># Initializing Mxlsc Automation Engine...</div>
+                            <div class="code-line import">from selenium import webdriver</div>
+                            <div class="code-line import">import requests, pandas as pd</div>
+                            <div class="code-line import">from bs4 import BeautifulSoup</div>
+                            <div class="code-line class">class AutomationEngine:</div>
+                            <div class="code-line method">    def __init__(self, target_url):</div>
+                            <div class="code-line variable">        self.driver = webdriver.Chrome()</div>
+                            <div class="code-line variable">        self.session = requests.Session()</div>
+                            <div class="code-line method">    def execute(self):</div>
+                            <div class="code-line comment">        # Anti-detection enabled ✓</div>
+                            <div class="code-line comment">        # Proxy rotation active ✓</div>
+                            <div class="code-line comment">        # Captcha bypass ready ✓</div>
+                            <div class="code-line execute">engine = AutomationEngine(target)</div>
+                            <div class="code-line execute">result = engine.execute()<span class="cursor-blink">█</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-fire">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text terminal-font"># ls /categories/</h2>
+                <p class="section-subtitle terminal-font">--filter by automation_type</p>
+            </div>
+            
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Automations -->
+    <section id="automations" class="automations-section">
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <h2 class="section-title gradient-text terminal-font">$ ./featured --premium</h2>
+                    <p class="section-subtitle terminal-font">// Scripts testados em produção</p>
+                </div>
+                <a href="#all-automations" class="view-all-link terminal-font">
+                    cat all.py <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="automations-grid" id="automationsGrid">
+                <!-- Automations will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title gradient-text terminal-font">$ ./contact --custom</h2>
+                    <p class="contact-description terminal-font">
+                        Precisa de uma automação personalizada? Nossa equipe pode desenvolver 
+                        a solução perfeita para suas necessidades específicas.
+                    </p>
+                    
+                    <div class="contact-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <span class="terminal-font">Desenvolvimento sob medida</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <span class="terminal-font">Suporte técnico completo</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <span class="terminal-font">Documentação detalhada</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <span class="terminal-font">Garantia de funcionamento</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form glass-card" id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label terminal-font">Nome Completo</label>
+                        <input type="text" name="name" required class="form-input terminal-font" placeholder="Seu nome completo" maxlength="100" minlength="2" pattern="[A-Za-zÀ-ÿ\s]{2,100}" autocomplete="name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label terminal-font">Email</label>
+                        <input type="email" name="email" required class="form-input terminal-font" placeholder="seu@email.com" maxlength="254" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" autocomplete="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label terminal-font">Empresa (opcional)</label>
+                        <input type="text" name="company" class="form-input terminal-font" placeholder="Nome da sua empresa" maxlength="100" autocomplete="organization">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label terminal-font">Tipo de Automação</label>
+                        <select name="automationType" required class="form-select terminal-font">
+                            <option value="">Selecione o tipo</option>
+                            <option value="web-scraping">Web Scraping</option>
+                            <option value="data-processing">Processamento de Dados</option>
+                            <option value="email-automation">Automação de Email</option>
+                            <option value="api-integration">Integração de APIs</option>
+                            <option value="automated-reports">Relatórios Automatizados</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label terminal-font">Descrição do Projeto</label>
+                        <textarea name="description" required class="form-textarea terminal-font" rows="4" placeholder="Descreva detalhadamente o que você precisa automatizar..." maxlength="2000" minlength="10"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label terminal-font">Orçamento Estimado</label>
+                        <select name="budget" required class="form-select terminal-font">
+                            <option value="">Selecione uma faixa</option>
+                            <option value="100-500">R$ 100 - R$ 500</option>
+                            <option value="500-1000">R$ 500 - R$ 1.000</option>
+                            <option value="1000-2500">R$ 1.000 - R$ 2.500</option>
+                            <option value="2500-5000">R$ 2.500 - R$ 5.000</option>
+                            <option value="5000+">R$ 5.000+</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-full terminal-font">
+                        <i class="fas fa-paper-plane"></i>
+                        Solicitar Orçamento
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-container">
+                        <div class="logo-icon fire-gradient">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <span class="logo-title gradient-text terminal-font">Mxlsc</span>
+                    </div>
+                    <p class="footer-description terminal-font">
+                        Marketplace de automações Python profissionais para aumentar sua produtividade.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4 class="link-title terminal-font">Marketplace</h4>
+                        <ul class="link-list terminal-font">
+                            <li><a href="#automations">Todas as Automações</a></li>
+                            <li><a href="#categories">Automações Gratuitas</a></li>
+                            <li><a href="#automations">Mais Populares</a></li>
+                            <li><a href="#automations">Lançamentos</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4 class="link-title terminal-font">Desenvolvedores</h4>
+                        <ul class="link-list terminal-font">
+                            <li><a href="#contact">Vender Automações</a></li>
+                            <li><a href="#contact">Documentação</a></li>
+                            <li><a href="#contact">Guidelines</a></li>
+                            <li><a href="#contact">Suporte</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4 class="link-title terminal-font">Suporte</h4>
+                        <ul class="link-list terminal-font">
+                            <li><a href="#contact">Central de Ajuda</a></li>
+                            <li><a href="#contact">Contato</a></li>
+                            <li><a href="#contact">Política de Privacidade</a></li>
+                            <li><a href="#contact">Termos de Uso</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="terminal-font">&copy; 2024 Mxlsc. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3 class="modal-title terminal-font">Finalizar Compra</h3>
+                <button class="modal-close" onclick="closePaymentModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="payment-steps">
+                    <!-- Step 1: Email -->
+                    <div class="payment-step active" id="emailStep">
+                        <h4 class="step-title terminal-font">1. Seu Email</h4>
+                        <div class="form-group">
+                            <input type="email" id="buyerEmail" required class="form-input terminal-font" placeholder="seu@email.com" maxlength="254" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" autocomplete="email">
+                        </div>
+                        <button class="btn-primary btn-full terminal-font" onclick="nextStep()">
+                            Continuar
+                        </button>
+                    </div>
+                    
+                    <!-- Step 2: Payment Method -->
+                    <div class="payment-step" id="paymentStep">
+                        <h4 class="step-title terminal-font">2. Método de Pagamento</h4>
+                        <div class="payment-methods">
+                            <div class="payment-method" onclick="selectPaymentMethod('pix')">
+                                <i class="fas fa-qrcode"></i>
+                                <span class="terminal-font">PIX</span>
+                            </div>
+                            <div class="payment-method" onclick="selectPaymentMethod('credit')">
+                                <i class="fas fa-credit-card"></i>
+                                <span class="terminal-font">Cartão de Crédito</span>
+                            </div>
+                            <div class="payment-method" onclick="selectPaymentMethod('debit')">
+                                <i class="fas fa-credit-card"></i>
+                                <span class="terminal-font">Cartão de Débito</span>
+                            </div>
+                            <div class="payment-method" onclick="selectPaymentMethod('boleto')">
+                                <i class="fas fa-barcode"></i>
+                                <span class="terminal-font">Boleto</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Processing -->
+                    <div class="payment-step" id="processingStep">
+                        <div class="processing-animation">
+                            <div class="loader"></div>
+                            <p class="terminal-font">Processando pagamento...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Success -->
+                    <div class="payment-step" id="successStep">
+                        <div class="success-content">
+                            <i class="fas fa-rocket success-icon"></i>
+                            <h4 class="terminal-font">Pedido Efetuado!</h4>
+                            <p class="terminal-font">Sua automação será enviada em breve. Verifique seu email para atualizações.</p>
+                            <div class="success-details terminal-font">
+                                <p><i class="fas fa-envelope"></i> Confirmação enviada para mxlsc@proton.me</p>
+                                <p><i class="fas fa-clock"></i> Entrega em até 24 horas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
