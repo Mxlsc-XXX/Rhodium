@@ -10,8 +10,9 @@ class RhodiumApp {
         this.isCodeVisible = false;
 
         // Config Supabase
-        this.supabaseUrl = 'https://bchaobnjfrmzvlmqeoge.supabase.co'; // muda pra tua URL
-        this.supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJjaGFvYm5qZnJtenZsbXFlb2dlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxMjk0NjMsImV4cCI6MjA2NTcwNTQ2M30.CeH2qS0brRJVCgiskfgTTJwlEqlBMHmc39ZZ8zghtGY'; // muda pra tua anon key
+        this.supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+        this.supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+        
         this.supabase = supabase.createClient(this.supabaseUrl, this.supabaseKey);
 
         this.init();
