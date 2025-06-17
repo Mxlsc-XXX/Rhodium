@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RHODIUM</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="/Rhodium/assets/index-BVcbRAbt.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+
+    <div class="intro" id="intro">
+        <div class="intro-text">Rhodium</div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById("intro").classList.add("exit");
+            setTimeout(() => {
+                document.getElementById("intro").style.display = "none";
+            }, 1000); // Após o raio
+        }, 2000); // Duração da introdução
+    </script>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen active">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>RHODIUM</h1>
+                <p>Workspace Inteligente</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <input type="text" id="loginCode" placeholder="Código de Acesso" required>
+                    <i class="fas fa-key"></i>
+                </div>
+                <button type="submit" class="btn-primary">ENTRAR</button>
+                <p class="toggle-auth">
+                    Não tem conta? <span id="showRegister">Cadastre-se</span>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Screen -->
+    <div id="registerScreen" class="screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>CRIAR CONTA</h1>
+                <p>Junte-se ao Rhodium</p>
+            </div>
+            <form id="registerForm" class="login-form">
+                <div class="input-group">
+                    <input type="text" id="registerName" placeholder="Nome de usuário" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <button type="submit" class="btn-primary">CADASTRAR</button>
+                <p class="toggle-auth">
+                    Já tem conta? <span id="showLogin">Faça login</span>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="screen">
+        <header class="app-header">
+            <div class="header-left">
+                <h1>RHODIUM</h1>
+            </div>
+            <div class="header-right">
+                <span id="userName"></span>
+                <button id="settingsBtn" class="btn-secondary">
+                    <i class="fas fa-cog"></i> CONFIGURAÇÕES
+                </button>
+                <button id="logoutBtn" class="btn-secondary">SAIR</button>
+            </div>
+        </header>
+
+        <div class="app-container">
+            <nav class="sidebar">
+                <div class="nav-item active" data-tab="workspace">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Workspace</span>
+                </div>
+                <div class="nav-item" data-tab="pdf-analyzer">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Analisador PDF</span>
+                </div>
+                <div class="nav-item" data-tab="notes">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Notas</span>
+                </div>
+                <div class="nav-item" data-tab="text-tools">
+                    <i class="fas fa-tools"></i>
+                    <span>Ferramentas</span>
+                </div>
+                <div class="nav-item" data-tab="ai-assistant">
+                    <i class="fas fa-robot"></i>
+                    <span>IA Assistente</span>
+                </div>
+                <div class="nav-item" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                </div>
+            </nav>
+
+            <main class="main-content">
+                <!-- Workspace Tab -->
+                <div id="workspace" class="tab-content active">
+                    <div class="content-header">
+                        <h2>MEU WORKSPACE</h2>
+                        <button id="addPageBtn" class="btn-primary">
+                            <i class="fas fa-plus"></i> NOVA PÁGINA
+                        </button>
+                    </div>
+                    <div id="pagesList" class="pages-list"></div>
+
+                    <div id="pageEditor" class="page-editor hidden">
+                        <div class="editor-header">
+                            <input type="text" id="pageTitle" placeholder="Título da página" class="page-title-input">
+                            <div class="editor-actions">
+                                <button id="savePageBtn" class="btn-primary">SALVAR</button>
+                                <button id="closeEditorBtn" class="btn-secondary">FECHAR</button>
+                            </div>
+                        </div>
+                        <div class="editor-toolbar">
+                            <button class="toolbar-btn" data-action="bold"><i class="fas fa-bold"></i></button>
+                            <button class="toolbar-btn" data-action="italic"><i class="fas fa-italic"></i></button>
+                            <button class="toolbar-btn" data-action="underline"><i
+                                    class="fas fa-underline"></i></button>
+                            <button class="toolbar-btn" data-action="insertUnorderedList"><i
+                                    class="fas fa-list-ul"></i></button>
+                            <button class="toolbar-btn" data-action="insertOrderedList"><i
+                                    class="fas fa-list-ol"></i></button>
+                            <button class="toolbar-btn" data-action="insertHorizontalRule"><i
+                                    class="fas fa-minus"></i></button>
+                            <button class="toolbar-btn" data-action="insertImage"><i class="fas fa-image"></i></button>
+                            <button class="toolbar-btn" data-action="createLink"><i class="fas fa-link"></i></button>
+                            <button class="toolbar-btn" data-action="formatBlock" data-value="h1"><i
+                                    class="fas fa-heading"></i>1</button>
+                            <button class="toolbar-btn" data-action="formatBlock" data-value="h2"><i
+                                    class="fas fa-heading"></i>2</button>
+                            <button class="toolbar-btn" data-action="formatBlock" data-value="h3"><i
+                                    class="fas fa-heading"></i>3</button>
+                        </div>
+                        <div id="pageContent" class="page-content" contenteditable="true"></div>
+                    </div>
+                </div>
+
+                <!-- PDF Analyzer Tab -->
+                <div id="pdf-analyzer" class="tab-content">
+                    <div class="content-header">
+                        <h2>ANALISADOR DE PDF</h2>
+                    </div>
+                    <div class="pdf-analyzer-container">
+                        <div class="upload-section">
+                            <div class="upload-zone" id="uploadZone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Arraste um PDF aqui ou clique para selecionar</p>
+                                <input type="file" id="pdfInput" accept=".pdf" hidden>
+                            </div>
+                            <div id="pdfPreview" class="pdf-preview hidden">
+                                <h3>ARQUIVO CARREGADO:</h3>
+                                <p id="fileName"></p>
+                                <div class="pdf-actions">
+                                    <button id="summarizePdf" class="btn-primary">RESUMIR</button>
+                                    <button id="extractText" class="btn-primary">EXTRAIR TEXTO</button>
+                                    <button id="analyzeStructure" class="btn-primary">ANALISAR ESTRUTURA</button>
+                                    <button id="extractImages" class="btn-primary">EXTRAIR IMAGENS</button>
+                                    <button id="generateQuestions" class="btn-primary">GERAR PERGUNTAS</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analysis-results">
+                            <div id="summaryResult" class="result-section hidden">
+                                <h3>RESUMO:</h3>
+                                <div id="summaryText"></div>
+                                <button id="saveSummary" class="btn-primary">SALVAR COMO NOTA</button>
+                            </div>
+
+                            <div id="textResult" class="result-section hidden">
+                                <h3>TEXTO EXTRAÍDO:</h3>
+                                <div id="extractedText"></div>
+                                <button id="saveText" class="btn-primary">SALVAR TEXTO</button>
+                            </div>
+
+                            <div id="structureResult" class="result-section hidden">
+                                <h3>ESTRUTURA DO DOCUMENTO:</h3>
+                                <div id="documentStructure"></div>
+                            </div>
+
+                            <div id="questionsResult" class="result-section hidden">
+                                <h3>PERGUNTAS GERADAS:</h3>
+                                <div id="generatedQuestions"></div>
+                                <button id="saveQuestions" class="btn-primary">SALVAR PERGUNTAS</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes Tab -->
+                <div id="notes" class="tab-content">
+                    <div class="content-header">
+                        <h2>MINHAS NOTAS</h2>
+                        <button id="addNoteBtn" class="btn-primary">
+                            <i class="fas fa-plus"></i> NOVA NOTA
+                        </button>
+                    </div>
+                    <div id="notesList" class="notes-list"></div>
+
+                    <div id="noteEditor" class="note-editor hidden">
+                        <div class="note-header">
+                            <input type="text" id="noteTitle" placeholder="Título da nota" class="note-title-input">
+                            <div class="note-actions">
+                                <button id="saveNoteBtn" class="btn-primary">SALVAR</button>
+                                <button id="closeNoteBtn" class="btn-secondary">FECHAR</button>
+                            </div>
+                        </div>
+                        <div class="note-toolbar">
+                            <button class="toolbar-btn" data-action="bold"><i class="fas fa-bold"></i></button>
+                            <button class="toolbar-btn" data-action="italic"><i class="fas fa-italic"></i></button>
+                            <button class="toolbar-btn" data-action="underline"><i
+                                    class="fas fa-underline"></i></button>
+                            <button class="toolbar-btn" data-action="insertUnorderedList"><i
+                                    class="fas fa-list-ul"></i></button>
+                            <button class="toolbar-btn" data-action="insertOrderedList"><i
+                                    class="fas fa-list-ol"></i></button>
+                            <button class="toolbar-btn" data-action="insertHorizontalRule"><i
+                                    class="fas fa-minus"></i></button>
+                            <select id="fontSizeSelect" class="toolbar-select">
+                                <option value="12px">12px</option>
+                                <option value="14px" selected>14px</option>
+                                <option value="16px">16px</option>
+                                <option value="18px">18px</option>
+                                <option value="20px">20px</option>
+                                <option value="24px">24px</option>
+                            </select>
+                            <input type="color" id="textColor" class="toolbar-color" value="#ffffff">
+                            <input type="color" id="backgroundColor" class="toolbar-color" value="#000000">
+                        </div>
+                        <div id="noteContent" class="note-content" contenteditable="true"></div>
+                    </div>
+                </div>
+
+                <!-- Text Tools Tab -->
+                <div id="text-tools" class="tab-content">
+                    <div class="content-header">
+                        <h2>FERRAMENTAS DE TEXTO</h2>
+                    </div>
+                    <div class="tools-container">
+                        <div class="tool-section">
+                            <h3>CONTADOR DE PALAVRAS</h3>
+                            <textarea id="wordCountText" placeholder="Cole seu texto aqui..."></textarea>
+                            <div class="stats">
+                                <span>Caracteres: <span id="charCount">0</span></span>
+                                <span>Palavras: <span id="wordCount">0</span></span>
+                                <span>Parágrafos: <span id="paragraphCount">0</span></span>
+                            </div>
+                        </div>
+
+                        <div class="tool-section">
+                            <h3>FORMATAÇÃO DE TEXTO</h3>
+                            <textarea id="formatText" placeholder="Texto para formatar..."></textarea>
+                            <div class="format-buttons">
+                                <button id="upperCase" class="btn-primary">MAIÚSCULA</button>
+                                <button id="lowerCase" class="btn-primary">minúscula</button>
+                                <button id="titleCase" class="btn-primary">Título</button>
+                                <button id="removeSpaces" class="btn-primary">Remover Espaços</button>
+                            </div>
+                            <textarea id="formatResult" readonly placeholder="Resultado..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Assistant Tab -->
+                <div id="ai-assistant" class="tab-content">
+                    <div class="content-header">
+                        <h2>IA ASSISTENTE</h2>
+                    </div>
+                    <div class="ai-container">
+                        <div class="chat-container">
+                            <div id="chatMessages" class="chat-messages"></div>
+                            <div class="chat-input">
+                                <input type="text" id="aiInput" placeholder="Faça uma pergunta ou peça ajuda...">
+                                <button id="sendAi" class="btn-primary">ENVIAR</button>
+                            </div>
+                        </div>
+                        <div class="ai-tools">
+                            <h3>FERRAMENTAS RÁPIDAS:</h3>
+                            <button class="ai-tool-btn" data-prompt="Resuma este texto:">Resumir Texto</button>
+                            <button class="ai-tool-btn" data-prompt="Traduza para o inglês:">Traduzir</button>
+                            <button class="ai-tool-btn" data-prompt="Corrija a gramática:">Corrigir Gramática</button>
+                            <button class="ai-tool-btn" data-prompt="Explique este conceito:">Explicar Conceito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="settings" class="tab-content">
+                    <div class="content-header">
+                        <h2>CONFIGURAÇÕES</h2>
+                    </div>
+                    <div class="tools-container">
+                        <div class="tool-section">
+                            <h3>INFORMAÇÕES DA CONTA</h3>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 10px; font-weight: 600;">Nome de
+                                    usuário:</label>
+                                <span id="settingsUserName" style="font-size: 1.1rem;"></span>
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 10px; font-weight: 600;">Código de
+                                    acesso:</label>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <span id="userCodeDisplay"
+                                        style="font-size: 1.1rem; font-family: 'Cascadia Code', monospace;">••••••••</span>
+                                    <button id="toggleCodeBtn" class="btn-secondary" style="padding: 5px 10px;">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">
+                                    Use este código para fazer login na sua conta.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tool-section">
+                            <h3>CONFIGURAÇÕES DE IA</h3>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 10px; font-weight: 600;">Chave API
+                                    OpenAI:</label>
+                                <input type="password" id="openaiKey" placeholder="sk-..."
+                                    style="width: 100%; padding: 10px; border: 2px solid #000; font-family: 'Cascadia Code', monospace;">
+                                <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">
+                                    Obtenha em: <a href="https://platform.openai.com/api-keys"
+                                        target="_blank">platform.openai.com</a>
+                                </p>
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 10px; font-weight: 600;">Chave API
+                                    Gemini:</label>
+                                <input type="password" id="geminiKey" placeholder="AIza..."
+                                    style="width: 100%; padding: 10px; border: 2px solid #000; font-family: 'Cascadia Code', monospace;">
+                                <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">
+                                    Obtenha em: <a href="https://makersuite.google.com/app/apikey"
+                                        target="_blank">Google AI Studio</a>
+                                </p>
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 10px; font-weight: 600;">IA
+                                    Preferida:</label>
+                                <select id="preferredAI"
+                                    style="width: 100%; padding: 10px; border: 2px solid #000; font-family: 'Cascadia Code', monospace;">
+                                    <option value="openai">OpenAI (GPT)</option>
+                                    <option value="gemini">Google Gemini</option>
+                                </select>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button id="saveSettingsBtn" class="btn-primary" style="flex: 1;">
+                                    <i class="fas fa-save"></i> SALVAR
+                                </button>
+                                <button id="testAIBtn" class="btn-secondary" style="flex: 1;">
+                                    <i class="fas fa-vial"></i> TESTAR IA
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p>PROCESSANDO...</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
