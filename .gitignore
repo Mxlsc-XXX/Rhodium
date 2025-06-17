@@ -1,0 +1,38 @@
+
+# Arquivos de configuração sensíveis
+.env
+.env.local
+.env.production
+.env.development
+
+# Chaves e certificados
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Configurações locais
+config.local.js
+secrets.js
+
+# Logs
+*.log
+logs/
+
+# Cache e temporários
+.cache/
+.temp/
+.tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Node modules (se usar)
+node_modules/
