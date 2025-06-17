@@ -1,6 +1,0 @@
-# Ignorar todos os arquivos e pastas
-*
-
-# Exceto esses
-!src/
-!README.md
