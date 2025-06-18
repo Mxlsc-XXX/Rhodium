@@ -45,7 +45,7 @@ Este projeto é **open source** e pode ser modificado por qualquer pessoa.
 ## 💸 Quer apoiar o projeto?
 
 Curtiu a ideia e quer dar uma força?  
-👉 [Clique aqui pra ajudar 💙](https://seulink.digital/NLM7FQ)
+👉 [Clique aqui pra ajudar 💙](https://pixgg.com/Mxlsc)
 
 ---
 
