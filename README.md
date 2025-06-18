@@ -4,7 +4,7 @@
 <div align="center">
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue?style=flat-square" />
   <img src="https://img.shields.io/github/license/Mxlsc-XXX/Rhodium?style=flat-square" />
-  <img src="https://img.shields.io/badge/Made%20with-💙%20JavaScript%20%26%20Supabase-blueviolet?style=flat-square" />
+  <img src="https://img.shields.io/badge/Made%20with-JavaScript%20%26%20Supabase-blueviolet?style=flat-square" />
   <img src="https://img.shields.io/badge/Deploy-GitHub%20Pages-informational?style=flat-square" />
 </div>
 
@@ -12,29 +12,40 @@
 
 ## 🔥 Sobre o projeto
 
-O **Rhodium** é uma aplicação web moderna, rápida e escalável, criada pra facilitar o gerenciamento de dados e tornar a experiência do usuário fluida e responsiva.  
-Tudo isso com um visual clean e integração full com a **Supabase**.
+**Rhodium** é uma aplicação web responsiva e escalável, desenvolvida para facilitar o gerenciamento de dados em tempo real com o poder da **Supabase**.  
+Com um visual limpo, arquitetura leve e estrutura modular, o app entrega uma experiência rápida, fluida e segura — ideal para quem busca produtividade com estilo.
 
 ---
 
-## ⚙️ Tecnologias usadas
+## ⚙️ Tecnologias utilizadas
 
-- 💻 **HTML5 + CSS3**
-- 🧠 **JavaScript**
-- 📦 **Supabase**
-- 🛠️ **GitHub Pages**
-
----
-
-## ✨ Features principais
-
-✅ Autenticação de usuários via Supabase  
-✅ Design responsivo e amigável  
-✅ Deploy direto via GitHub Pages
+- 💻 **HTML5 + CSS3** — estrutura e estilo
+- 🧠 **JavaScript** — lógica e interatividade
+- 📦 **Supabase** — autenticação, banco de dados e API
+- 🚀 **GitHub Pages** — deploy fácil e gratuito
 
 ---
 
-# ATENÇÃO, EU NÃO ME RESPONSABILIZO POR NENHUM DANO CAUSADO POR ESSE SITE. É UM SITE OPEN SOURCE E PODE SER MODIFICADO POR OUTROS. QUALQUER GOLPE, SCAM E/OU ROUBO NÃO TEM NADA HAVER COMIGO.
+## ✨ Funcionalidades principais
 
----  
-# Quer dar uma força? [Então ajuda ai](https://seulink.digital/NLM7FQ)
+- ✅ Login e registro de usuários via Supabase Auth  
+- ✅ Visual responsivo e adaptado para todas as telas  
+- ✅ Deploy rápido e gratuito com GitHub Pages  
+- ✅ Código aberto e fácil de modificar  
+
+---
+
+## ⚠️ Aviso legal
+
+Este projeto é **open source** e pode ser modificado por qualquer pessoa.  
+**Não me responsabilizo** por golpes, fraudes ou quaisquer danos causados por terceiros usando versões alteradas do Rhodium.
+
+---
+
+## 💸 Quer apoiar o projeto?
+
+Curtiu a ideia e quer dar uma força?  
+👉 [Clique aqui pra ajudar 💙](https://seulink.digital/NLM7FQ)
+
+---
+
