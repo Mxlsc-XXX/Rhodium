@@ -3,7 +3,7 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue?style=flat-square" />
-  <img src="https://img.shields.io/github/license/Mxlsc-XXX/rhodium?style=flat-square" />
+  <img src="https://img.shields.io/github/license/Mxlsc-XXX/Rhodium?style=flat-square" />
   <img src="https://img.shields.io/badge/Made%20with-💙%20JavaScript%20%26%20Supabase-blueviolet?style=flat-square" />
   <img src="https://img.shields.io/badge/Deploy-GitHub%20Pages-informational?style=flat-square" />
 </div>
