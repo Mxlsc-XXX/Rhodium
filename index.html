@@ -5,20 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RHODIUM</title>
+    <link rel="icon" type="image/png" href="/Rhodium/assets/icon-CgtOk2v5.png">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-  <script type="module" crossorigin src="/Rhodium/assets/index-CXq6XZXa.js"></script>
-  <link rel="stylesheet" crossorigin href="/Rhodium/assets/index-BVcbRAbt.css">
+  <script type="module" crossorigin src="/Rhodium/assets/index-Cdz0mpGN.js"></script>
+  <link rel="stylesheet" crossorigin href="/Rhodium/assets/index-CGs6O2XO.css">
 </head>
 
 <body>
+    <div class="custom-cursor"></div>
+
+    <div class="theme-toggle">
+        <button class="theme-btn active" data-theme="classic">CLASSIC</button>
+        <button class="theme-btn" data-theme="neon">NEON</button>
+        <button class="theme-btn" data-theme="glassmorphism">GLASS</button>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <div class="intro" id="intro">
-        <div class="intro-text">Rhodium...</div>
+        <div class="intro-text">RHODIUM</div>
+        <div class="loading-text">Carregando sistema...</div>
     </div>
 
     <script>
@@ -79,7 +91,7 @@
             <div class="header-right">
                 <span id="userName"></span>
                 <button id="settingsBtn" class="btn-secondary">
-                    <i class="fas fa-cog"></i> CONFIGURAÇÕES
+                    <i class="fas fa-cog"></i> CONFIG
                 </button>
                 <button id="logoutBtn" class="btn-secondary">SAIR</button>
             </div>
@@ -111,10 +123,174 @@
                     <i class="fas fa-cog"></i>
                     <span>Configurações</span>
                 </div>
+                <div class="nav-item" data-tab="library">
+                    <i class="fas fa-book"></i>
+                    <span>Biblioteca</span>
+                </div>
+                <div class="nav-item" data-tab="features">
+                    <i class="fas fa-list-check"></i>
+                    <span>Funcionalidades</span>
+                </div>
+
             </nav>
 
             <main class="main-content">
+                <!-- Library Tab -->
+                <div id="library" class="tab-content">
+                    <div class="content-header">
+                        <h2>BIBLIOTECA</h2>
+                        <div class="library-search">
+                            <input type="text" id="librarySearch" placeholder="Buscar livros, autores, tags..."
+                                onkeyup="app.searchLibrary(this.value)">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div id="libraryContainer" class="library-container"></div>
+                </div>
+
                 <!-- Workspace Tab -->
+                <div id="features" class="tab-content">
+                    <div class="content-header">
+                        <h2>FUNCIONALIDADES</h2>
+                    </div>
+                    <div class="features-container">
+                        <!-- Funcionalidades já implementadas -->
+                        <section class="implemented">
+                            <h3>✅ FUNCIONALIDADES IMPLEMENTADAS</h3>
+                            <ul>
+                                <li><strong>Editor de Páginas:</strong> Editor rico com formatação completa</li>
+                                <li><strong>Sistema de Notas:</strong> Criação e edição de notas rápidas</li>
+                                <li><strong>Analisador de PDF:</strong> Extração, resumo e análise de documentos PDF
+                                </li>
+                                <li><strong>Ferramentas de Texto:</strong> Contador de palavras e formatação</li>
+                                <li><strong>IA Assistente:</strong> Chat com OpenAI e Gemini com memória de conversas
+                                </li>
+                                <li><strong>Sincronização:</strong> Dados salvos em nuvem com Supabase</li>
+                                <li><strong>Autenticação:</strong> Sistema seguro baseado em códigos únicos</li>
+                                <li><strong>Interface Responsiva:</strong> Compatível com desktop e mobile</li>
+                            </ul>
+                        </section>
+
+                        <!-- Funcionalidades planejadas -->
+                        <section>
+                            <h3>📁 ORGANIZAÇÃO & ESTRUTURA</h3>
+                            <ul>
+                                <li>Páginas aninhadas com links e backlinks automáticos</li>
+                                <li>Hierarquia de blocos com drag & drop</li>
+                                <li>Templates personalizáveis e breadcrumb</li>
+                                <li>Histórico de versões e favoritos</li>
+                                <li>Mapa mental visual e split-view</li>
+                                <li>Sistema de vaults e pastas</li>
+                                <li>Tags automáticas e categorização</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3>⌨️ EDIÇÃO AVANÇADA & BLOCOS</h3>
+                            <ul>
+                                <li>Markdown com live preview completo</li>
+                                <li>Callouts, LaTeX e fórmulas matemáticas</li>
+                                <li>Tabelas interativas e listas inteligentes</li>
+                                <li>Code blocks com syntax highlight</li>
+                                <li>Toggle blocks e embeds nativos</li>
+                                <li>Footnotes e citações automáticas</li>
+                                <li>Drag & drop de arquivos e imagens</li>
+                                <li>Templates de página e blocos reutilizáveis</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3>🔍 PESQUISA & NAVEGAÇÃO</h3>
+                            <ul>
+                                <li>Busca global (Ctrl+P) em todo conteúdo</li>
+                                <li>Outline automático e Graph View</li>
+                                <li>Quick switch entre páginas</li>
+                                <li>Filtros avançados por tags, data e tipo</li>
+                                <li>Links internos automáticos</li>
+                                <li>Busca semântica com IA</li>
+                                <li>Índice automático de conteúdo</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3>🧠 PRODUTIVIDADE & WORKFLOW</h3>
+                            <ul>
+                                <li>Notas diárias automáticas</li>
+                                <li>Sistema de tarefas e TODO lists</li>
+                                <li>Lembretes e notificações</li>
+                                <li>Metodologia GTD integrada</li>
+                                <li>Pomodoro timer nativo</li>
+                                <li>Agenda e calendário sincronizado</li>
+                                <li>Menções (@) e colaboração</li>
+                                <li>Sistema de datas e timestamps</li>
+                                <li>Múltiplos workspaces</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3>📂 MULTIMÍDIA & COMPARTILHAMENTO</h3>
+                            <ul>
+                                <li>Upload e gerenciamento de arquivos</li>
+                                <li>Visualização nativa de PDF, DOCX, Excel</li>
+                                <li>Player de áudio e vídeo integrado</li>
+                                <li>Embeds de Figma, Loom, YouTube, GitHub</li>
+                                <li>Galeria de imagens com zoom</li>
+                                <li>Controle granular de acesso</li>
+                                <li>Permissões por página e seção</li>
+                                <li>Compartilhamento público com links</li>
+                                <li>Sistema de comentários colaborativos</li>
+                                <li>Versionamento e histórico de mudanças</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3>🧰 INTEGRAÇÕES & EXTENSÕES</h3>
+                            <ul>
+                                <li>Google Calendar e Google Drive</li>
+                                <li>Todoist, Notion, Obsidian import/export</li>
+                                <li>Zotero para referências acadêmicas</li>
+                                <li>Anki para cards de memorização</li>
+                                <li>Exportação com Pandoc (PDF, Word, LaTeX)</li>
+                                <li>GPT/IA integrada para escrita assistida</li>
+                                <li>Plugins JavaScript/CSS personalizados</li>
+                                <li>API REST completa para automação</li>
+                                <li>Hotkeys customizáveis</li>
+                                <li>Temas e personalização visual</li>
+                                <li>Webhooks para automações</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3>📱 MULTIPLATAFORMA & PERFORMANCE</h3>
+                            <ul>
+                                <li>Web app progressivo (PWA)</li>
+                                <li>Desktop: Windows, macOS, Linux</li>
+                                <li>Mobile: Android e iOS nativo</li>
+                                <li>Sincronização offline-first</li>
+                                <li>Otimização para performance</li>
+                                <li>Backup automático e redundância</li>
+                                <li>Criptografia end-to-end</li>
+                                <li>CDN global para velocidade</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h3>🤖 IA & AUTOMAÇÃO</h3>
+                            <ul>
+                                <li>Assistente de escrita com contexto</li>
+                                <li>Resumos automáticos de documentos</li>
+                                <li>Geração de outlines e estruturas</li>
+                                <li>Tradução automática de conteúdo</li>
+                                <li>Correção gramatical inteligente</li>
+                                <li>Sugestões de tags e categorias</li>
+                                <li>Análise de sentimento em textos</li>
+                                <li>OCR para imagens e PDFs</li>
+                                <li>Transcrição de áudio automática</li>
+                                <li>Chatbots personalizados por workspace</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
                 <div id="workspace" class="tab-content active">
                     <div class="content-header">
                         <h2>MEU WORKSPACE</h2>
@@ -259,25 +435,48 @@
                     </div>
                     <div class="tools-container">
                         <div class="tool-section">
-                            <h3>CONTADOR DE PALAVRAS</h3>
-                            <textarea id="wordCountText" placeholder="Cole seu texto aqui..."></textarea>
+                            <h3>ANÁLISE DE TEXTO</h3>
+                            <textarea id="wordCountText"
+                                placeholder="Cole seu texto aqui para análise completa..."></textarea>
                             <div class="stats">
                                 <span>Caracteres: <span id="charCount">0</span></span>
                                 <span>Palavras: <span id="wordCount">0</span></span>
                                 <span>Parágrafos: <span id="paragraphCount">0</span></span>
+                                <span>Frases: <span id="sentenceCount">0</span></span>
+                            </div>
+                            <div class="stats">
+                                <span>Média palavras/frase: <span id="avgWords">0</span></span>
+                                <span>Média caracteres/palavra: <span id="avgChars">0</span></span>
+                                <span>Tempo de leitura: <span id="readingTime">0 min</span></span>
                             </div>
                         </div>
 
                         <div class="tool-section">
-                            <h3>FORMATAÇÃO DE TEXTO</h3>
+                            <h3>FORMATAÇÃO BÁSICA</h3>
                             <textarea id="formatText" placeholder="Texto para formatar..."></textarea>
                             <div class="format-buttons">
                                 <button id="upperCase" class="btn-primary">MAIÚSCULA</button>
                                 <button id="lowerCase" class="btn-primary">minúscula</button>
-                                <button id="titleCase" class="btn-primary">Título</button>
-                                <button id="removeSpaces" class="btn-primary">Remover Espaços</button>
+                                <button id="titleCase" class="btn-primary">Primeira Maiúscula</button>
+                                <button id="removeSpaces" class="btn-primary">Limpar Espaços</button>
                             </div>
-                            <textarea id="formatResult" readonly placeholder="Resultado..."></textarea>
+                            <textarea id="formatResult" readonly placeholder="Resultado da formatação..."></textarea>
+                        </div>
+
+                        <div class="tool-section">
+                            <h3>FERRAMENTAS AVANÇADAS</h3>
+                            <div class="format-buttons">
+                                <button id="reverseText" class="btn-primary">Inverter Texto</button>
+                                <button id="removeLineBreaks" class="btn-primary">Remover Quebras</button>
+                                <button id="sortLines" class="btn-primary">Ordenar Linhas</button>
+                                <button id="removeDuplicates" class="btn-primary">Remover Duplicatas</button>
+                            </div>
+                            <div class="format-buttons">
+                                <button id="addLineNumbers" class="btn-primary">Numerar Linhas</button>
+                                <button id="extractEmails" class="btn-primary">Extrair E-mails</button>
+                                <button id="extractUrls" class="btn-primary">Extrair URLs</button>
+                                <button id="countWords" class="btn-primary">Contar Frequência</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -286,13 +485,22 @@
                 <div id="ai-assistant" class="tab-content">
                     <div class="content-header">
                         <h2>IA ASSISTENTE</h2>
+                        <button id="newChatBtn" class="btn-primary">
+                            <i class="fas fa-plus"></i> NOVA CONVERSA
+                        </button>
                     </div>
                     <div class="ai-container">
+                        <div class="chat-sidebar">
+                            <div class="chat-sessions-header">
+                                <h3>CONVERSAS</h3>
+                            </div>
+                            <div id="chatSessions" class="chat-sessions"></div>
+                        </div>
                         <div class="chat-container">
                             <div id="chatMessages" class="chat-messages"></div>
                             <div class="chat-input">
                                 <input type="text" id="aiInput" placeholder="Faça uma pergunta ou peça ajuda...">
-                                <button id="sendAi" class="btn-primary">ENVIAR</button>
+                                <button id="sendAi" class="btn-send">ENVIAR</button>
                             </div>
                         </div>
                         <div class="ai-tools">
@@ -301,6 +509,9 @@
                             <button class="ai-tool-btn" data-prompt="Traduza para o inglês:">Traduzir</button>
                             <button class="ai-tool-btn" data-prompt="Corrija a gramática:">Corrigir Gramática</button>
                             <button class="ai-tool-btn" data-prompt="Explique este conceito:">Explicar Conceito</button>
+                            <button class="ai-tool-btn" data-prompt="Crie um código em Python para:">Gerar
+                                Código</button>
+                            <button class="ai-tool-btn" data-prompt="Analise estes dados:">Analisar Dados</button>
                         </div>
                     </div>
                 </div>
@@ -323,7 +534,7 @@
                                     acesso:</label>
                                 <div style="display: flex; align-items: center; gap: 10px;">
                                     <span id="userCodeDisplay"
-                                        style="font-size: 1.1rem; font-family: 'Cascadia Code', monospace;">••••••••</span>
+                                        style="font-size: 1.1rem; font-family: 'Cascadia Code', monospace; backdrop-filter: blur(8px); transition: all 0.3s ease;">••••••••</span>
                                     <button id="toggleCodeBtn" class="btn-secondary" style="padding: 5px 10px;">
                                         <i class="fas fa-eye"></i>
                                     </button>
@@ -366,11 +577,8 @@
                                 </select>
                             </div>
                             <div style="display: flex; gap: 10px;">
-                                <button id="saveSettingsBtn" class="btn-primary" style="flex: 1;">
+                                <button id="salvar-config" class="btn-primary" style="flex: 1;">
                                     <i class="fas fa-save"></i> SALVAR
-                                </button>
-                                <button id="testAIBtn" class="btn-secondary" style="flex: 1;">
-                                    <i class="fas fa-vial"></i> TESTAR IA
                                 </button>
                             </div>
                         </div>
