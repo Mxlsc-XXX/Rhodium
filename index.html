@@ -3,16 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RHODIUM</title>
     <link rel="icon" type="image/png" href="/assets/icon-CgtOk2v5-CgtOk2v5.png">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-SUqODA-n.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CCSeTQ36.css">
+        rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="./assets/index-DxcghE6-.css">
+  <script type="module" crossorigin src="/assets/index-n9U9BHPu.js"></script>
 </head>
 
 <body>
@@ -22,6 +22,10 @@
         <button class="theme-btn active" data-theme="classic">CLASSIC</button>
         <button class="theme-btn" data-theme="neon">NEON</button>
         <button class="theme-btn" data-theme="glassmorphism">GLASS</button>
+        <div class="theme-btn-locked">
+            <button class="theme-btn" data-theme="customcss">CUSTOM</button>
+            <span class="lock-icon">🔒</span>
+        </div>
     </div>
 
     <div class="toast-container" id="toastContainer"></div>
@@ -145,7 +149,7 @@
                                 <i class="fas fa-search"></i>
                             </div>
                             <div class="library-buttons">
-                                <button class="btn-secondary library-control-btn">
+                                <button class="btn-secondary library-control-btn" onclick="app.showAddBookModal()">
                                     <i class="fas fa-plus"></i> Adicionar Livro
                                 </button>
                                 <button class="btn-secondary library-control-btn" onclick="app.filterFavorites()">
@@ -166,140 +170,10 @@
                         <h2>FUNCIONALIDADES</h2>
                     </div>
                     <div class="features-container">
-                        <!-- Funcionalidades já implementadas -->
                         <section class="implemented">
-                            <h3>✅ FUNCIONALIDADES IMPLEMENTADAS</h3>
-                            <ul>
-                                <li><strong>Editor de Páginas:</strong> Editor rico com formatação completa</li>
-                                <li><strong>Sistema de Notas:</strong> Criação e edição de notas rápidas</li>
-                                <li><strong>Analisador de PDF:</strong> Extração, resumo e análise de documentos PDF
-                                </li>
-                                <li><strong>Ferramentas de Texto:</strong> Contador de palavras e formatação</li>
-                                <li><strong>IA Assistente:</strong> Chat com OpenAI e Gemini com memória de conversas
-                                </li>
-                                <li><strong>Sincronização:</strong> Dados salvos em nuvem com Supabase</li>
-                                <li><strong>Autenticação:</strong> Sistema seguro baseado em códigos únicos</li>
-                                <li><strong>Interface Responsiva:</strong> Compatível com desktop e mobile</li>
-                            </ul>
-                        </section>
-
-                        <!-- Funcionalidades planejadas -->
-                        <section>
-                            <h3>📁 ORGANIZAÇÃO & ESTRUTURA</h3>
-                            <ul>
-                                <li>Páginas aninhadas com links e backlinks automáticos</li>
-                                <li>Hierarquia de blocos com drag & drop</li>
-                                <li>Templates personalizáveis e breadcrumb</li>
-                                <li>Histórico de versões e favoritos</li>
-                                <li>Mapa mental visual e split-view</li>
-                                <li>Sistema de vaults e pastas</li>
-                                <li>Tags automáticas e categorização</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h3>⌨️ EDIÇÃO AVANÇADA & BLOCOS</h3>
-                            <ul>
-                                <li>Markdown com live preview completo</li>
-                                <li>Callouts, LaTeX e fórmulas matemáticas</li>
-                                <li>Tabelas interativas e listas inteligentes</li>
-                                <li>Code blocks com syntax highlight</li>
-                                <li>Toggle blocks e embeds nativos</li>
-                                <li>Footnotes e citações automáticas</li>
-                                <li>Drag & drop de arquivos e imagens</li>
-                                <li>Templates de página e blocos reutilizáveis</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h3>🔍 PESQUISA & NAVEGAÇÃO</h3>
-                            <ul>
-                                <li>Busca global (Ctrl+P) em todo conteúdo</li>
-                                <li>Outline automático e Graph View</li>
-                                <li>Quick switch entre páginas</li>
-                                <li>Filtros avançados por tags, data e tipo</li>
-                                <li>Links internos automáticos</li>
-                                <li>Busca semântica com IA</li>
-                                <li>Índice automático de conteúdo</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h3>🧠 PRODUTIVIDADE & WORKFLOW</h3>
-                            <ul>
-                                <li>Notas diárias automáticas</li>
-                                <li>Sistema de tarefas e TODO lists</li>
-                                <li>Lembretes e notificações</li>
-                                <li>Metodologia GTD integrada</li>
-                                <li>Pomodoro timer nativo</li>
-                                <li>Agenda e calendário sincronizado</li>
-                                <li>Menções (@) e colaboração</li>
-                                <li>Sistema de datas e timestamps</li>
-                                <li>Múltiplos workspaces</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h3>📂 MULTIMÍDIA & COMPARTILHAMENTO</h3>
-                            <ul>
-                                <li>Upload e gerenciamento de arquivos</li>
-                                <li>Visualização nativa de PDF, DOCX, Excel</li>
-                                <li>Player de áudio e vídeo integrado</li>
-                                <li>Embeds de Figma, Loom, YouTube, GitHub</li>
-                                <li>Galeria de imagens com zoom</li>
-                                <li>Controle granular de acesso</li>
-                                <li>Permissões por página e seção</li>
-                                <li>Compartilhamento público com links</li>
-                                <li>Sistema de comentários colaborativos</li>
-                                <li>Versionamento e histórico de mudanças</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h3>🧰 INTEGRAÇÕES & EXTENSÕES</h3>
-                            <ul>
-                                <li>Google Calendar e Google Drive</li>
-                                <li>Todoist, Notion, Obsidian import/export</li>
-                                <li>Zotero para referências acadêmicas</li>
-                                <li>Anki para cards de memorização</li>
-                                <li>Exportação com Pandoc (PDF, Word, LaTeX)</li>
-                                <li>GPT/IA integrada para escrita assistida</li>
-                                <li>Plugins JavaScript/CSS personalizados</li>
-                                <li>API REST completa para automação</li>
-                                <li>Hotkeys customizáveis</li>
-                                <li>Temas e personalização visual</li>
-                                <li>Webhooks para automações</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h3>📱 MULTIPLATAFORMA & PERFORMANCE</h3>
-                            <ul>
-                                <li>Web app progressivo (PWA)</li>
-                                <li>Desktop: Windows, macOS, Linux</li>
-                                <li>Mobile: Android e iOS nativo</li>
-                                <li>Sincronização offline-first</li>
-                                <li>Otimização para performance</li>
-                                <li>Backup automático e redundância</li>
-                                <li>Criptografia end-to-end</li>
-                                <li>CDN global para velocidade</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h3>🤖 IA & AUTOMAÇÃO</h3>
-                            <ul>
-                                <li>Assistente de escrita com contexto</li>
-                                <li>Resumos automáticos de documentos</li>
-                                <li>Geração de outlines e estruturas</li>
-                                <li>Tradução automática de conteúdo</li>
-                                <li>Correção gramatical inteligente</li>
-                                <li>Sugestões de tags e categorias</li>
-                                <li>Análise de sentimento em textos</li>
-                                <li>OCR para imagens e PDFs</li>
-                                <li>Transcrição de áudio automática</li>
-                                <li>Chatbots personalizados por workspace</li>
-                            </ul>
+                            <h3>Em produção... </h3>
+                            <p>Estamos trabalhando duro para trazer novas funcionalidades incríveis para você!</p>
+                            <p>Fique ligado para atualizações!</p>
                         </section>
                     </div>
                 </div>
@@ -426,12 +300,22 @@
                             <button class="toolbar-btn" data-action="insertHorizontalRule"><i
                                     class="fas fa-minus"></i></button>
                             <select id="fontSizeSelect" class="toolbar-select">
+                                <option value="12px">8px</option>
                                 <option value="12px">12px</option>
                                 <option value="14px" selected>14px</option>
                                 <option value="16px">16px</option>
                                 <option value="18px">18px</option>
                                 <option value="20px">20px</option>
                                 <option value="24px">24px</option>
+                                <option value="28px">28px</option>
+                                <option value="32px">32px</option>
+                                <option value="36px">36px</option>
+                                <option value="40px">40px</option>
+                                <option value="48px">48px</option>
+                                <option value="56px">56px</option>
+                                <option value="64px">64px</option>
+                                <option value="72px">72px</option>
+
                             </select>
                             <input type="color" id="textColor" class="toolbar-color" value="#ffffff">
                             <input type="color" id="backgroundColor" class="toolbar-color" value="#000000">
@@ -512,7 +396,9 @@
                             <div id="chatMessages" class="chat-messages"></div>
                             <div class="chat-input">
                                 <input type="text" id="aiInput" placeholder="Faça uma pergunta ou peça ajuda...">
-                                <button id="sendAi" class="btn-send">ENVIAR</button>
+                                <button id="sendAi" class="btn-send">
+                                    <i class="fa-solid fa-paper-plane"></i><span class="send-text">ENVIAR</span>
+                                </button>
                             </div>
                         </div>
                         <div class="ai-tools">
@@ -553,9 +439,6 @@
                                 </div>
                                 <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">
                                     Use este código para fazer login na sua conta.
-                                </p>
-                                <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">
-                                    -- Doe ao dev: https://pixgg.com/Mxlsc --
                                 </p>
                             </div>
                         </div>
@@ -633,6 +516,19 @@
                         <button type="submit" class="btn btn-primary">Salvar</button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="customCssPanel"
+        style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+        <div style="background:#222; color:#fff; padding:32px; border-radius:12px; min-width:350px; max-width:90vw;">
+            <h3 style="margin-top:0;">Custom CSS</h3>
+            <textarea id="customCssInput"
+                style="width:100%;height:180px;resize:vertical;font-family:monospace;"></textarea>
+            <div style="margin-top:16px;display:flex;gap:8px;justify-content:flex-end;">
+                <button id="applyCustomCssBtn" class="btn-primary">Aplicar</button>
+                <button id="closeCustomCssBtn" class="btn-secondary">Fechar</button>
             </div>
         </div>
     </div>
